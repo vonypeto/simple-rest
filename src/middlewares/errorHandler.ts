@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import logger from "@utils/logger";
 
-export const errorHandler = (
+const errorHandler = (
   error: Error,
   req: Request,
   res: Response,
@@ -12,5 +12,15 @@ export const errorHandler = (
 
   logger.error(errorMessage);
 
-  res.status(statusCode).json({ error: errorMessage });
+  const errorResponse = {
+    error: errorMessage,
+    statusCode: statusCode,
+  };
+
+  // Set headers for JSON response
+  res.setHeader("Content-Type", "application/json");
+
+  res.status(statusCode).json(errorResponse);
 };
+
+export default errorHandler;

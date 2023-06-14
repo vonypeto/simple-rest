@@ -17,7 +17,7 @@ const testDbSchema: Schema<ITestDB> = new Schema(
 
 testDbSchema.method("toJSON", function () {
   const { _id, ...object } = this.toObject();
-  object.household_id = _id;
+  object.test_id = _id;
   return object;
 });
 
