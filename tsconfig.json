@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "moduleResolution": "node",
+
+    "target": "es6",
+    "module": "commonjs",
+    "sourceMap": true,
+    "outDir": "dist/",
+    "baseUrl": ".",
+    "paths": {
+      "@src/*": ["src/*"],
+      "@utils/*": ["src/utils/*"],
+      "@controllers/*": ["src/controllers/*"],
+      "@models/*": ["src/models/*"],
+      "@routes/*": ["src/routes/*"],
+      "@config/*": ["src/config/*"],
+      "@auth/*": ["src/auth/*"]
+    }
+  },
+  "exclude": ["node_modules"]
+}
