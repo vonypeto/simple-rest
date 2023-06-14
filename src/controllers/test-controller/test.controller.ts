@@ -1,4 +1,4 @@
-// import db from "@src/models";
+import logger from "@utils/logger";
 import { Request, Response } from "express";
 import mongoose from "mongoose";
 import db from "@models/index";
@@ -21,6 +21,7 @@ export const testCreate = async (
   } catch (error: unknown) {
     if (error instanceof Error) {
       console.log(error.message);
+      logger.error(error.message);
     }
   }
 };
