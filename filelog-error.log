@@ -10,3 +10,5 @@
 {"level":"error","message":"testdbs validation failed: _id: Cast to ObjectId failed for value \"1\" (type number) at path \"_id\" because of \"BSONError\"","timestamp":"2023-06-14T15:33:46.648Z"}
 {"level":"error","message":"testdbs validation failed: _id: Cast to ObjectId failed for value \"1\" (type number) at path \"_id\" because of \"BSONError\"","timestamp":"2023-06-14T15:33:54.333Z"}
 {"level":"error","message":"Unexpected token } in JSON at position 28","timestamp":"2023-06-14T15:35:56.967Z"}
+{"level":"error","message":"Unexpected token } in JSON at position 42","timestamp":"2023-06-14T15:52:43.457Z"}
+{"level":"error","message":"Unexpected token } in JSON at position 42","timestamp":"2023-06-14T15:53:27.988Z"}
