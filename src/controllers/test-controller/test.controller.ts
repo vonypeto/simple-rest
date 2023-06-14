@@ -3,9 +3,6 @@ import { Request, Response, NextFunction } from "express";
 import mongoose from "mongoose";
 import db from "@models/index";
 const TestDB = db.testdb;
-// const HouseHoldMembers = db.household_members;
-// const HouseHoldName = db.households;
-// const pageSizeOptions = [5, 10, 20, 50, 100];
 
 export const testCreate = async (
   req: Request,
