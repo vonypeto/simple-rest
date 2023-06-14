@@ -1,5 +1,5 @@
 import db from "@models/index";
-import mongoose, { ConnectOptions } from "mongoose";
+import { ConnectOptions } from "mongoose";
 
 export default async (): Promise<void> => {
   try {

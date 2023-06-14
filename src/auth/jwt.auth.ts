@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import jwt, { VerifyErrors, JwtPayload } from "jsonwebtoken";
-import logger from "../utils/logger";
+import logger from "@utils/logger";
 
 interface AuthenticatedRequest extends Request {
   user?: JwtPayload;
@@ -24,7 +24,7 @@ const authenticationToken =
           console.log(err.message);
           if (err) {
             res.sendStatus(403);
-            logger.error("Error in /api/example:", err);
+            logger.error("Error in jwt:", err);
 
             return;
           }
@@ -34,6 +34,7 @@ const authenticationToken =
       );
     } catch (error) {
       console.error(error.message);
+      logger.error("Error in jwt:", error);
       res.sendStatus(500);
     }
   };
