@@ -16,6 +16,7 @@
       "@models/*": ["src/models/*"],
       "@routes/*": ["src/routes/*"],
       "@config/*": ["src/config/*"],
+      "@middlewares/*": ["src/middlewares/*"],
       "@auth/*": ["src/auth/*"]
     }
   },

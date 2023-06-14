@@ -8,4 +8,5 @@ moduleAlias.addAliases({
   "@config": __dirname + "/src/config",
   "@utils": __dirname + "/src/utils",
   "@auth": __dirname + "/src/auth",
+  "@middlewares": __dirname + "/src/middlewares",
 });

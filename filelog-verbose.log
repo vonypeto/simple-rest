@@ -17,3 +17,58 @@
 {"level":"info","message":"GET /api/create","timestamp":"2023-06-14T14:55:08.274Z"}
 {"level":"info","message":"GET /api/create","timestamp":"2023-06-14T14:55:36.627Z"}
 {"level":"info","message":"GET /api/create","timestamp":"2023-06-14T14:55:37.546Z"}
+{"level":"info","message":"GET /api/create","timestamp":"2023-06-14T15:21:49.286Z"}
+{"level":"info","message":"GET /api/create","timestamp":"2023-06-14T15:21:51.613Z"}
+{"level":"info","message":"GET /api/create","timestamp":"2023-06-14T15:21:52.582Z"}
+{"level":"info","message":"GET /api/create","timestamp":"2023-06-14T15:21:53.348Z"}
+{"level":"info","message":"GET /api/create","timestamp":"2023-06-14T15:21:53.732Z"}
+{"level":"info","message":"GET /api/create","timestamp":"2023-06-14T15:21:54.319Z"}
+{"level":"info","message":"GET /api/create","timestamp":"2023-06-14T15:22:08.018Z"}
+{"level":"info","message":"GET /api/create","timestamp":"2023-06-14T15:22:10.990Z"}
+{"level":"info","message":"GET /api/create","timestamp":"2023-06-14T15:22:11.479Z"}
+{"level":"info","message":"GET /api/create","timestamp":"2023-06-14T15:22:11.889Z"}
+{"level":"info","message":"GET /api/create","timestamp":"2023-06-14T15:22:52.986Z"}
+{"level":"info","message":"GET /api/create","timestamp":"2023-06-14T15:22:53.684Z"}
+{"level":"info","message":"GET /api/create","timestamp":"2023-06-14T15:22:56.472Z"}
+{"level":"info","message":"GET /api/create","timestamp":"2023-06-14T15:22:57.260Z"}
+{"level":"info","message":"GET /api/jwt","timestamp":"2023-06-14T15:23:11.413Z"}
+{"expiredAt":"2023-06-14T08:42:27.000Z","level":"error","message":"Error in jwt: jwt expired","name":"TokenExpiredError","stack":"TokenExpiredError: jwt expired\n    at /root/Desktop/Angular-Tutorial/nodejs-typescript/node_modules/jsonwebtoken/verify.js:190:21\n    at getSecret (/root/Desktop/Angular-Tutorial/nodejs-typescript/node_modules/jsonwebtoken/verify.js:97:14)\n    at Object.module.exports [as verify] (/root/Desktop/Angular-Tutorial/nodejs-typescript/node_modules/jsonwebtoken/verify.js:101:10)\n    at /root/Desktop/Angular-Tutorial/nodejs-typescript/src/auth/jwt.auth.ts:20:19\n    at Layer.handle [as handle_request] (/root/Desktop/Angular-Tutorial/nodejs-typescript/node_modules/express/lib/router/layer.js:95:5)\n    at next (/root/Desktop/Angular-Tutorial/nodejs-typescript/node_modules/express/lib/router/route.js:144:13)\n    at Route.dispatch (/root/Desktop/Angular-Tutorial/nodejs-typescript/node_modules/express/lib/router/route.js:114:3)\n    at Layer.handle [as handle_request] (/root/Desktop/Angular-Tutorial/nodejs-typescript/node_modules/express/lib/router/layer.js:95:5)\n    at /root/Desktop/Angular-Tutorial/nodejs-typescript/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/root/Desktop/Angular-Tutorial/nodejs-typescript/node_modules/express/lib/router/index.js:346:12)","timestamp":"2023-06-14T15:23:11.468Z"}
+{"level":"info","message":"GET /api/create","timestamp":"2023-06-14T15:23:13.589Z"}
+{"level":"info","message":"GET /api/create","timestamp":"2023-06-14T15:24:07.652Z"}
+{"level":"info","message":"GET /api/create","timestamp":"2023-06-14T15:24:10.483Z"}
+{"level":"info","message":"GET /api/create","timestamp":"2023-06-14T15:24:58.904Z"}
+{"level":"info","message":"GET /api/create","timestamp":"2023-06-14T15:24:59.540Z"}
+{"level":"info","message":"GET /api/create","timestamp":"2023-06-14T15:25:00.177Z"}
+{"level":"info","message":"GET /api/create","timestamp":"2023-06-14T15:25:00.942Z"}
+{"level":"info","message":"GET /api/create","timestamp":"2023-06-14T15:25:01.345Z"}
+{"level":"info","message":"GET /api/create","timestamp":"2023-06-14T15:27:24.465Z"}
+{"level":"info","message":"GET /api/create","timestamp":"2023-06-14T15:27:25.126Z"}
+{"level":"info","message":"GET /api/create","timestamp":"2023-06-14T15:27:25.788Z"}
+{"level":"info","message":"GET /api/create","timestamp":"2023-06-14T15:27:26.179Z"}
+{"level":"info","message":"GET /api/create","timestamp":"2023-06-14T15:28:28.642Z"}
+{"level":"info","message":"GET /api/create","timestamp":"2023-06-14T15:28:32.172Z"}
+{"level":"info","message":"GET /api/create","timestamp":"2023-06-14T15:30:36.046Z"}
+{"level":"info","message":"GET /api/create","timestamp":"2023-06-14T15:30:36.540Z"}
+{"level":"info","message":"GET /api/create","timestamp":"2023-06-14T15:30:36.959Z"}
+{"level":"info","message":"GET /api/create","timestamp":"2023-06-14T15:30:40.342Z"}
+{"level":"info","message":"GET /api/jwt","timestamp":"2023-06-14T15:32:54.386Z"}
+{"expiredAt":"2023-06-14T08:42:27.000Z","level":"error","message":"Error in jwt: jwt expired","name":"TokenExpiredError","stack":"TokenExpiredError: jwt expired\n    at /root/Desktop/Angular-Tutorial/nodejs-typescript/node_modules/jsonwebtoken/verify.js:190:21\n    at getSecret (/root/Desktop/Angular-Tutorial/nodejs-typescript/node_modules/jsonwebtoken/verify.js:97:14)\n    at Object.module.exports [as verify] (/root/Desktop/Angular-Tutorial/nodejs-typescript/node_modules/jsonwebtoken/verify.js:101:10)\n    at /root/Desktop/Angular-Tutorial/nodejs-typescript/src/auth/jwt.auth.ts:20:19\n    at Layer.handle [as handle_request] (/root/Desktop/Angular-Tutorial/nodejs-typescript/node_modules/express/lib/router/layer.js:95:5)\n    at next (/root/Desktop/Angular-Tutorial/nodejs-typescript/node_modules/express/lib/router/route.js:144:13)\n    at Route.dispatch (/root/Desktop/Angular-Tutorial/nodejs-typescript/node_modules/express/lib/router/route.js:114:3)\n    at Layer.handle [as handle_request] (/root/Desktop/Angular-Tutorial/nodejs-typescript/node_modules/express/lib/router/layer.js:95:5)\n    at /root/Desktop/Angular-Tutorial/nodejs-typescript/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/root/Desktop/Angular-Tutorial/nodejs-typescript/node_modules/express/lib/router/index.js:346:12)","timestamp":"2023-06-14T15:32:54.414Z"}
+{"level":"info","message":"GET /api/create","timestamp":"2023-06-14T15:32:56.140Z"}
+{"level":"error","message":"testdbs validation failed: _id: Cast to ObjectId failed for value \"1\" (type number) at path \"_id\" because of \"BSONError\"","timestamp":"2023-06-14T15:32:56.162Z"}
+{"level":"info","message":"GET /api/create","timestamp":"2023-06-14T15:33:02.715Z"}
+{"level":"error","message":"testdbs validation failed: _id: Cast to ObjectId failed for value \"1\" (type number) at path \"_id\" because of \"BSONError\"","timestamp":"2023-06-14T15:33:02.717Z"}
+{"level":"info","message":"GET /api/jwt","timestamp":"2023-06-14T15:33:06.082Z"}
+{"level":"info","message":"GET /favicon.ico","timestamp":"2023-06-14T15:33:07.714Z"}
+{"level":"info","message":"GET /api/create","timestamp":"2023-06-14T15:33:44.792Z"}
+{"level":"error","message":"testdbs validation failed: _id: Cast to ObjectId failed for value \"1\" (type number) at path \"_id\" because of \"BSONError\"","timestamp":"2023-06-14T15:33:44.812Z"}
+{"level":"info","message":"GET /api/create","timestamp":"2023-06-14T15:33:45.934Z"}
+{"level":"error","message":"testdbs validation failed: _id: Cast to ObjectId failed for value \"1\" (type number) at path \"_id\" because of \"BSONError\"","timestamp":"2023-06-14T15:33:45.946Z"}
+{"level":"info","message":"GET /api/create","timestamp":"2023-06-14T15:33:46.645Z"}
+{"level":"error","message":"testdbs validation failed: _id: Cast to ObjectId failed for value \"1\" (type number) at path \"_id\" because of \"BSONError\"","timestamp":"2023-06-14T15:33:46.648Z"}
+{"level":"info","message":"GET /api/create","timestamp":"2023-06-14T15:33:54.320Z"}
+{"level":"error","message":"testdbs validation failed: _id: Cast to ObjectId failed for value \"1\" (type number) at path \"_id\" because of \"BSONError\"","timestamp":"2023-06-14T15:33:54.333Z"}
+{"level":"info","message":"GET /api/create","timestamp":"2023-06-14T15:34:31.389Z"}
+{"level":"info","message":"GET /api/create","timestamp":"2023-06-14T15:35:38.334Z"}
+{"level":"error","message":"Unexpected token } in JSON at position 28","timestamp":"2023-06-14T15:35:56.966Z"}
+{"level":"info","message":"GET /api/create","timestamp":"2023-06-14T15:36:04.056Z"}
+{"level":"info","message":"GET /api/create","timestamp":"2023-06-14T15:36:09.475Z"}

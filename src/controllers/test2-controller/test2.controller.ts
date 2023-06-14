@@ -7,28 +7,13 @@ const TestDB = db.testdb;
 // const HouseHoldName = db.households;
 // const pageSizeOptions = [5, 10, 20, 50, 100];
 
-export const testCreate = async (
+export const test2 = async (
   req: Request,
   res: Response,
   next: NextFunction
-): Promise<Response> => {
+): Promise<void> => {
   try {
-    const { name, age } = req.body;
-
-    if (!name || !age) {
-      return res.status(400).json({ error: "Name and age are required" });
-    }
-
-    const testDbId = new mongoose.Types.ObjectId();
-
-    const testDbData = new TestDB({
-      _id: testDbId,
-      name,
-      age,
-    });
-
-    await testDbData.save();
-    res.json(testDbData);
+    res.json({ hello: "I seee youuu" });
   } catch (error: unknown) {
     next(error);
   }

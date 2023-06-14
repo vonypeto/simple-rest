@@ -1,8 +1,11 @@
+// ENV & File Shorten
 import * as dotenv from "dotenv";
 import "./module-alias.config";
-
 dotenv.config();
-// Decleare Middleware
+
+// Declare Middleware
+import { errorHandler } from "@middlewares/errorHandler";
+import { requestLogger } from "@middlewares/requestLogger";
 import express, { Express, Request, Response, NextFunction } from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
@@ -19,11 +22,8 @@ const port = process.env.PORT || 5000;
 // Middleware
 app.use(cors());
 app.use(bodyParser.json());
-app.use((req: Request, res: Response, next: NextFunction) => {
-  const message = `${req.method} ${req.path}`;
-  logger.info(message);
-  next();
-});
+app.use(requestLogger);
+// Welcome Page
 app.get("/", (req: Request, res: Response) => {
   res.send("Express + TypeScript Server");
 });
@@ -31,6 +31,7 @@ app.get("/", (req: Request, res: Response) => {
 import routes from "./src/routes";
 routes(app);
 
+app.use(errorHandler);
 app.listen(port, () => {
   console.log(`[server]: Server is running at http://localhost:${port}`);
 });
