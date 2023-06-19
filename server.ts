@@ -9,6 +9,7 @@ import compression from "compression";
 import middlewareHandler from "@src/middlewares/";
 import connectionDatabase from "@src/config/db.connection";
 import routes from "./src/routes";
+import "@src/config/redis.config";
 
 connectionDatabase();
 
@@ -22,6 +23,7 @@ app.use(compression());
 app.use(middlewareHandler.requestLogger);
 app.use(middlewareHandler.errorHandler);
 app.use(middlewareHandler.validationMiddleware);
+// const client = redisConnect;
 
 app.get("/", (req: Request, res: Response) => {
   res.send("Express + TypeScript Server");

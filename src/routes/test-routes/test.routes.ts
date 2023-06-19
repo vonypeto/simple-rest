@@ -5,7 +5,9 @@ import auth from "@auth/index";
 export default (app: Application): void => {
   const router = Router();
 
-  router.get("/create", test.testCreate);
+  router.post("/create", test.testCreate);
+  router.get("/setredis", test.redisCreate);
+  router.get("/getredis", test.redisGet);
   router.get("/jwt", auth.authenticationToken, test.testCreate);
 
   app.use("/api", router);

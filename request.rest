@@ -1,5 +1,5 @@
 ###
-Get http://localhost:5000/api/create
+POST http://localhost:5000/api/create
 Content-Type: application/json
 
 {
@@ -10,3 +10,7 @@ Content-Type: application/json
 ###
 Get http://localhost:5000/api/jwt
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoX2lkIjoiZUY2T0FNc2QxWVpvQ3hwVzRmd3BCRTZSRTVQMiIsImF1dGhfb3JnYW5pemF0aW9uIjoibnVsbCIsImlhdCI6MTY4NjYzMjE0NywiZXhwIjoxNjg2NzMyMTQ3fQ.BNijD_-UZwWsGIUMjaD10pZL1s8-vxkFZeZq0_I7Nb8 
+
+###
+GET http://localhost:5000/api/getredis?user=123
+Content-Type: application/json
