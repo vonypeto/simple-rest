@@ -1,7 +1,7 @@
-import errorHandler from "./errorHandler";
-import requestLogger from "./requestLogger";
-import validationMiddleware from "./validationExpress";
-import allowCors from "./corsHandler";
+import errorHandler from "./error-handler";
+import requestLogger from "./request-logger";
+import validationMiddleware from "./validation-express";
+import allowCors from "./cors-handler";
 const middleware: {
   url: string;
   errorHandler: typeof errorHandler;

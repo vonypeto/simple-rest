@@ -19,13 +19,12 @@ const authenticationToken =
 
       jwtInstance.verify(
         token,
-        process.env.ACCESS_TOKEN_SECRET,
+        process.env.ACCESS_TOKEN_SECRET!,
         (err: VerifyErrors | null, user: JwtPayload | undefined) => {
-          console.log(err.message);
           if (err) {
+            console.error(err.message);
             res.sendStatus(403);
             logger.error("Error in jwt:", err);
-
             return;
           }
           req.user = user;

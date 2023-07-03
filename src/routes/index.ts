@@ -1,6 +1,8 @@
 import express from "express";
-import testRoutes from "@routes/test-routes/test.routes";
+import AccountRoutes from "@routes/accounts/accounts.routes";
+import productsRoutes from "./products/products.routes";
 
 export default (app: express.Application): void => {
-  testRoutes(app);
+  AccountRoutes(app);
+  productsRoutes(app);
 };

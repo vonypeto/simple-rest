@@ -1,0 +1,6 @@
+###
+POST http://localhost:5000/api/register
+Authorization: Basic dXNlckBtYWlsLmNvbToxMjM0cGFzcyE=
+###
+POST http://localhost:5000/api/auth
+Authorization: Basic dXNlckBtYWlsLmNvbToxMjM0cGFzcyE=

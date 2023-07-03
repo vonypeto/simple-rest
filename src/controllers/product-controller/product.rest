@@ -1,0 +1,39 @@
+###
+GET http://localhost:5000/api/product?first=5&after=64a27aa3c869fbddb3671243&before=64a27aa3c869fbddb3671243&sort=updatedAt&order=asc
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGEyNjMyMWFmZWZkOGZiODIyYTQ1ZDMiLCJpYXQiOjE2ODgzNjY5NzIsImV4cCI6MTY4ODM4NDk3Mn0.K3kYDfKfy1mZk7bws09Z-yMFv73NTNGJLsxSkvEnnto
+
+
+
+###
+PUT  http://localhost:5000/api/product/create
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGEyNjMyMWFmZWZkOGZiODIyYTQ1ZDMiLCJpYXQiOjE2ODgzNjY5NzIsImV4cCI6MTY4ODM4NDk3Mn0.K3kYDfKfy1mZk7bws09Z-yMFv73NTNGJLsxSkvEnnto
+
+{
+    "name": "Test 12312",
+    "price": "100"
+
+}
+
+###
+POST  http://localhost:5000/api/product/update/64a2722a7460ac4f1a2a7a9b
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGEyNjMyMWFmZWZkOGZiODIyYTQ1ZDMiLCJpYXQiOjE2ODgzNjY5NzIsImV4cCI6MTY4ODM4NDk3Mn0.K3kYDfKfy1mZk7bws09Z-yMFv73NTNGJLsxSkvEnnto
+
+{   
+    "name": "Test 55",
+    "price": "50"
+
+}
+
+###
+DELETE  http://localhost:5000/api/product/delete/64a2722a7460ac4f1a2a7a9b
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGEyNjMyMWFmZWZkOGZiODIyYTQ1ZDMiLCJpYXQiOjE2ODgzNjY5NzIsImV4cCI6MTY4ODM4NDk3Mn0.K3kYDfKfy1mZk7bws09Z-yMFv73NTNGJLsxSkvEnnto
+
+{   
+    "name": "Test 55",
+    "price": "50"
+
+}
