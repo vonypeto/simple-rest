@@ -1,15 +1,17 @@
-import { Schema, Document, Model, model } from "mongoose";
+import { Schema, Document, Model, model, Types } from "mongoose";
 
 export interface IProductDb extends Document {
   name: string;
   price: string;
   password: string;
+  user: Types.ObjectId | string;
 }
 
 const productDbSchema: Schema<IProductDb> = new Schema(
   {
     name: { type: String },
     price: { type: String },
+    user: { type: Schema.Types.ObjectId, ref: "accounts" },
   },
   { timestamps: true }
 );

@@ -33,12 +33,16 @@ export const ListProduct = async (
   next: NextFunction
 ): Promise<void> => {
   try {
+    console.log(req.params.userId);
     const { first, last, after, before, order } = req.query;
+    const userId = req.params.userId;
     const user = req.user;
     const sort: string = req.query.sort?.toString() || "";
 
-    // Create the filter based on the cursor and sort parameters
-    const filter: any = {};
+    // Create the filter based on the cursor, user ID, and sort parameters
+    const filter: any = {
+      user: userId, // Filter by the user ID
+    };
     if (after) {
       filter._id = { $gt: after };
     } else if (before) {
@@ -60,7 +64,7 @@ export const ListProduct = async (
     const hasNextPage = !!after || products.length > Number(first || last);
     const hasPreviousPage = !!before;
 
-    const totalCount = await Product.countDocuments();
+    const totalCount = await Product.countDocuments(filter);
 
     const productResponse: ProductResponse[] = products.map((product) => ({
       product,
@@ -86,6 +90,7 @@ export const ListProduct = async (
     next(error);
   }
 };
+// Test 1 just for backuo data no actual route
 export const ListProduct2 = async (
   req: AuthenticatedRequest,
   res: Response,
@@ -161,8 +166,6 @@ export const ListProduct2 = async (
 };
 // Helper function to generate an opaque cursor
 const generateOpaqueCursor = (id: string): string => {
-  // Logic to generate an opaque cursor based on the ID
-  // You can use any method or algorithm to generate a unique cursor
   return `cursor_${id}`;
 };
 
@@ -172,9 +175,12 @@ export const CreateProduct = async (
   next: NextFunction
 ): Promise<void> => {
   try {
+    seedProducts();
     const { name, price } = req.body;
     const user = req.user;
+    console.log(user.userId);
     const newProduct = await Product.create({
+      user: user.userId,
       name,
       price,
     });

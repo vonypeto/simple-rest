@@ -6,7 +6,8 @@ export const seedProducts = async (): Promise<void> => {
     // Define the product data
     const products = Array.from({ length: 50 }, (_, index) => ({
       name: `Product ${index + 1}`,
-      price: "10.99", // You can set the desired price here
+      price: (Math.random() * (100 - 1) + 1).toFixed(2),
+      user: "64a293c612615972102d2f7c",
     }));
 
     // Create the products

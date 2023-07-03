@@ -5,7 +5,7 @@ import auth from "@auth/index";
 export default (app: Application): void => {
   const router = Router();
 
-  router.get("/product", auth.authenticationToken, Product.ListProduct);
+  router.get("/:userId/product", auth.authenticationToken, Product.ListProduct);
   router.put(
     "/product/create",
     auth.authenticationToken,
