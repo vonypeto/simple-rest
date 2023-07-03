@@ -175,7 +175,6 @@ export const CreateProduct = async (
   next: NextFunction
 ): Promise<void> => {
   try {
-    seedProducts();
     const { name, price } = req.body;
     const user = req.user;
     console.log(user.userId);
