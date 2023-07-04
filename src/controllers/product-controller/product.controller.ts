@@ -3,28 +3,16 @@ import { Request, Response, NextFunction } from "express";
 import { JwtPayload } from "jsonwebtoken";
 import db from "@models/index";
 import mongoose from "mongoose";
+import {
+  ProductResponse,
+  PageInfo,
+  ListProductResponse,
+} from "@src/interfaces/products.interfaces";
 import { seedProducts } from "@src/helper/product-db";
 const Product = db.productdb;
 
 interface AuthenticatedRequest extends Request {
   user?: JwtPayload;
-}
-interface ProductResponse {
-  product: any; // Update the type of the product object with your product schema
-  cursor: string;
-}
-
-interface PageInfo {
-  startCursor: string;
-  endCursor: string;
-  hasNextPage: boolean;
-  hasPreviousPage: boolean;
-  totalCount: number;
-}
-
-interface ListProductResponse {
-  products: ProductResponse[];
-  pageInfo: PageInfo;
 }
 
 export const ListProduct = async (
