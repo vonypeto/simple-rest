@@ -682,3 +682,7 @@
 {"level":"info","message":"POST /api/auth","timestamp":"2023-07-04T02:28:15.518Z"}
 {"level":"info","message":"POST /api/register","timestamp":"2023-07-04T02:28:15.550Z"}
 {"level":"info","message":"POST /api/register","timestamp":"2023-07-04T02:28:15.748Z"}
+{"level":"info","message":"POST /api/auth","timestamp":"2023-07-04T02:32:42.259Z"}
+{"level":"info","message":"POST /api/auth","timestamp":"2023-07-04T02:32:43.782Z"}
+{"level":"info","message":"POST /api/register","timestamp":"2023-07-04T02:32:43.881Z"}
+{"level":"info","message":"POST /api/register","timestamp":"2023-07-04T02:32:44.086Z"}
