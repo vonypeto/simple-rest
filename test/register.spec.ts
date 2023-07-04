@@ -21,11 +21,7 @@ describe('POST /api/register', () => {
 
       expect(response.status).toBe(409);
       expect(response.body.message).toBe('User already exists');
+      await deleteUserByEmail('vonypet@mail');
     });
-  });
-
-  // Tear down
-  afterAll(async () => {
-    await deleteUserByEmail('vonypet@mail');
   });
 });

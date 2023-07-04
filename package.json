@@ -7,7 +7,7 @@
     "build": "npm run clean && npm run tsc -p tsconfig.build.json",
     "tsc": "tsc -p tsconfig.json",
     "dev": "nodemon --exec ts-node server.ts",
-    "test": "jest --detectOpenHandles",
+    "test": "NODE_ENV=test jest --detectOpenHandles --runInBand --forceExit --verbose" ,
     "test:watch": "jest --detectOpenHandles --watch",
     "lint": "tslint 'src/**/*.ts' --fix",
     "clean": "rm -rf dist/ .logs/",

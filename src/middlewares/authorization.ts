@@ -3,6 +3,13 @@ import { Response, NextFunction } from 'express';
 import jwt, { VerifyErrors, JwtPayload } from 'jsonwebtoken';
 import logger from '../middlewares/logger';
 
+class ForbiddenError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = 'ForbiddenError';
+  }
+}
+
 export default function (req: Request, res: Response, next: NextFunction) {
   const authHeader = req.headers.authorization;
   if (!authHeader) return next();
@@ -34,6 +41,6 @@ export default function (req: Request, res: Response, next: NextFunction) {
       }
     );
   } else {
-    return res.sendStatus(403);
+    throw new ForbiddenError('Invalid authorization type');
   }
 }

@@ -4,7 +4,6 @@ export const deleteUserByEmail = async (email) => {
   try {
     // Check if the user exists in the database
     const user = await AccountModel.findOne({ email: email });
-    console.log(user);
     if (!user) {
       throw new Error('User not found');
     }

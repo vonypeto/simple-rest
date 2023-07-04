@@ -10,7 +10,6 @@ export const login = async (
   next: NextFunction
 ): Promise<void> => {
   try {
-    console.log(req.ctx);
     const { email, password } = req.ctx.claims;
     // Check if the user exists in the database
     const user = await AccountModel.findOne({ email });
@@ -54,7 +53,10 @@ export const register = async (
       password: string;
       name: string;
     };
-
+    if (!email || !password) {
+      res.status(400).json({ message: 'Email and password are required' });
+      return;
+    }
     const existingUser = await AccountModel.findOne({ email });
 
     if (existingUser) {
