@@ -1,17 +1,18 @@
-import db from "@models/index";
+import mongoose  from "mongoose";
+import dbConfig from "./db.config";
 import { ConnectOptions } from "mongoose";
 
 let isConnected = false;
 
 export const connect = async (): Promise<void> => {
   try {
-    if (isConnected) {
+    if (mongoose.STATES.connected) {
       console.log("Database is already connected!");
       return;
     }
 
-    db.mongoose.set("strictQuery", true);
-    await db.mongoose.connect(db.url, {
+    mongoose.set("strictQuery", true);
+    await mongoose.connect(dbConfig.url, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     } as ConnectOptions);
@@ -32,7 +33,7 @@ export const disconnect = async (): Promise<void> => {
       return;
     }
 
-    await db.mongoose.disconnect();
+    await mongoose.disconnect();
     isConnected = false;
     console.log("Disconnected from the database!");
   } catch (err: unknown) {
