@@ -6,8 +6,11 @@ interface AuthenticatedRequest extends Request {
   user?: JwtPayload;
 }
 
-const authenticationToken =
-  (jwtInstance: typeof jwt) =>
+/*
+authenticationToken({ verify() { return false } })
+*/
+
+export default () =>
   (req: AuthenticatedRequest, res: Response, next: NextFunction): void => {
     try {
       const authHeader = req.headers['authorization'];
@@ -17,7 +20,7 @@ const authenticationToken =
         return;
       }
 
-      jwtInstance.verify(
+      jwt.verify(
         token,
         process.env.ACCESS_TOKEN_SECRET!,
         (err: VerifyErrors | null, user: JwtPayload | undefined) => {
@@ -37,5 +40,3 @@ const authenticationToken =
       res.sendStatus(500);
     }
   };
-
-export default authenticationToken;

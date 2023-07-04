@@ -6,11 +6,11 @@ interface AuthenticatedRequest extends Request {
   };
 }
 
-const authenticationBasic = (
+export default function (
   req: AuthenticatedRequest,
   res: Response,
   next: NextFunction
-): void => {
+): void {
   try {
     const authHeader = req.headers.authorization;
 
@@ -37,6 +37,4 @@ const authenticationBasic = (
     console.error(error.message);
     res.sendStatus(500);
   }
-};
-
-export default authenticationBasic;
+}

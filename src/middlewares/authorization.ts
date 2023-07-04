@@ -11,5 +11,11 @@ export default function (req: Request, _, next: NextFunction) {
       .split(':');
     req.ctx = { ...req.ctx, claims: { email, password } };
   } else if (type === 'Bearer') {
+    /*
+    TODO: handle the bearer token here
+    */
+  } else {
+    // throw forbidden error
   }
+  return next();
 }

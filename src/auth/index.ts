@@ -1,11 +1,2 @@
-import jwt from 'jsonwebtoken';
-import extractCredentials from './basic.auth';
-import authenticationToken from './jwt.auth';
-
-const token = {
-  jwt,
-  authenticationToken: authenticationToken(jwt),
-  authenticationBasic: extractCredentials,
-};
-
-export default token;
+export { default as extractCredentials } from './basic.auth';
+export { default as authenticationToken } from './jwt.auth';
