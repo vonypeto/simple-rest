@@ -3,27 +3,20 @@ import db from "../models";
 
 const Accounts = db.accountdb;
 
-export const DeleteUser = async (
-  req: Request,
-  res: Response,
-  next: NextFunction
-): Promise<void> => {
+export const deleteUserByEmail = async (email) => {
   try {
-    const userId = req.params.userId;
-
     // Check if the user exists in the database
-    const user = await Accounts.findById(userId);
-
+    const user = await Accounts.findOne({ email: email });
+    console.log(user);
     if (!user) {
-      res.status(404).json({ message: "User not found" });
-      return;
+      throw new Error("User not found");
     }
 
     // Delete the user
-    await Accounts.findByIdAndDelete(userId);
+    await Accounts.findByIdAndDelete(user._id);
 
-    res.json({ message: "User deleted successfully" });
-  } catch (error: unknown) {
-    next(error);
+    return { message: "User deleted successfully" };
+  } catch (error) {
+    throw error;
   }
 };
