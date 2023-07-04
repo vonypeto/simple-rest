@@ -1,6 +1,6 @@
 import { Router, Application } from 'express';
-import * as Product from '@controllers/product-controller/product.controller';
-import auth from '@auth/index';
+import * as Product from '@src/routes/products/product.controller';
+import auth from '../../auth';
 
 export default (app: Application): void => {
   const router = Router();

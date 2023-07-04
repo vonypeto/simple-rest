@@ -1,6 +1,13 @@
 ###
 POST http://localhost:5000/api/register
-Authorization: Basic dm9ueXBldEBtYWlsLmNvbToxMjM0cGFzcyE=
+Content-Type: application/json
+
+{
+    "name": "Von",
+    "email": "vo2n@mail.com",
+    "password": "123456"
+
+}
 ###
 POST http://localhost:5000/api/auth
 Authorization: Basic dXNlckBtYWlsLmNvbToxMjM0cGFzcyE=
@@ -8,7 +15,7 @@ Authorization: Basic dXNlckBtYWlsLmNvbToxMjM0cGFzcyE=
 
 ###
 POST http://localhost:5000/api/register
-Authorization: Basic dm9uQG1haWwuY29tOjEyMzRwYXNzIQ===
+Content-Type: application/json
 
 ###
 POST http://localhost:5000/api/auth

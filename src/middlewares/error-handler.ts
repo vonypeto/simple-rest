@@ -1,5 +1,5 @@
-import { Request, Response, NextFunction } from "express";
-import logger from "@utils/logger";
+import { Request, Response, NextFunction } from 'express';
+import logger from './logger';
 
 const errorHandler = (
   error: Error,
@@ -7,7 +7,7 @@ const errorHandler = (
   res: Response,
   next: NextFunction
 ): void => {
-  const errorMessage = error.message || "Internal Server Error";
+  const errorMessage = error.message || 'Internal Server Error';
   const statusCode = res.statusCode === 200 ? 500 : res.statusCode;
 
   logger.error(errorMessage);
@@ -18,7 +18,7 @@ const errorHandler = (
   };
 
   // Set headers for JSON response
-  res.setHeader("Content-Type", "application/json");
+  res.setHeader('Content-Type', 'application/json');
 
   res.status(statusCode).json(errorResponse);
 };

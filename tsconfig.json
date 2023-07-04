@@ -10,14 +10,7 @@
     "baseUrl": ".",
     "types": ["jest", "node"],
     "paths": {
-      "@src/*": ["src/*"],
-      "@utils/*": ["src/utils/*"],
-      "@controllers/*": ["src/controllers/*"],
-      "@models/*": ["src/models/*"],
-      "@routes/*": ["src/routes/*"],
-      "@config/*": ["src/config/*"],
-      "@middlewares/*": ["src/middlewares/*"],
-      "@auth/*": ["src/auth/*"]
+      "@src/*": ["src/*"]
     }
   },
   "exclude": ["node_modules"]

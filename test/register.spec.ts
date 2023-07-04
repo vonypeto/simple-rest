@@ -1,12 +1,13 @@
+import { deleteUserByEmail } from '@src/helper/account-db';
 import request from 'supertest';
+import app from '../app';
 
 describe('POST /api/register', () => {
   describe('Register given a username and password', () => {
     test('should respond with a 200 status code and return token', async () => {
       const response = await request(app)
         .post('/api/register')
-        .set('Authorization', 'Basic dm9ueXBldEBtYWlsLmNvbToxMjM0cGFzcyE=')
-        .send({});
+        .send({ email: 'vonypet@mail', password: '1234pass!', name: 'von' });
 
       expect(response.status).toBe(200);
       expect(response.body).toHaveProperty('token');
@@ -16,8 +17,7 @@ describe('POST /api/register', () => {
     test('should respond with a 409 status code if user already exists', async () => {
       const response = await request(app)
         .post('/api/register')
-        .set('Authorization', 'Basic dm9ueXBldEBtYWlsLmNvbToxMjM0cGFzcyE=')
-        .send({});
+        .send({ email: 'vonypet@mail', password: '1234pass!', name: 'von' });
 
       expect(response.status).toBe(409);
       expect(response.body.message).toBe('User already exists');
@@ -26,6 +26,6 @@ describe('POST /api/register', () => {
 
   // Tear down
   afterAll(async () => {
-    await deleteUserByEmail('vonypet@mail.com');
+    await deleteUserByEmail('vonypet@mail');
   });
 });

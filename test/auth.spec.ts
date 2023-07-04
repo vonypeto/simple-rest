@@ -25,7 +25,7 @@ describe('POST /api/auth', () => {
     async () => {
       await setup();
       const response = await request(app).post('/api/auth');
-      expect(response.status).toBe(500);
+      expect(response.status).toBe(401);
       await teardown();
     }
   );

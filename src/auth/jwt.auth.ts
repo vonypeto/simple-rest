@@ -1,6 +1,6 @@
-import { Request, Response, NextFunction } from "express";
-import jwt, { VerifyErrors, JwtPayload } from "jsonwebtoken";
-import logger from "@utils/logger";
+import { Request, Response, NextFunction } from 'express';
+import jwt, { VerifyErrors, JwtPayload } from 'jsonwebtoken';
+import logger from '../middlewares/logger';
 
 interface AuthenticatedRequest extends Request {
   user?: JwtPayload;
@@ -10,8 +10,8 @@ const authenticationToken =
   (jwtInstance: typeof jwt) =>
   (req: AuthenticatedRequest, res: Response, next: NextFunction): void => {
     try {
-      const authHeader = req.headers["authorization"];
-      const token = authHeader && authHeader.split(" ")[1];
+      const authHeader = req.headers['authorization'];
+      const token = authHeader && authHeader.split(' ')[1];
       if (!token) {
         res.sendStatus(401);
         return;
@@ -24,7 +24,7 @@ const authenticationToken =
           if (err) {
             console.error(err.message);
             res.sendStatus(403);
-            logger.error("Error in jwt:", err);
+            logger.error('Error in jwt:', err);
             return;
           }
           req.user = user;
@@ -33,7 +33,7 @@ const authenticationToken =
       );
     } catch (error) {
       console.error(error.message);
-      logger.error("Error in jwt:", error);
+      logger.error('Error in jwt:', error);
       res.sendStatus(500);
     }
   };

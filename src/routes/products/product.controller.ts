@@ -1,15 +1,13 @@
-import logger from "@utils/logger";
-import { Request, Response, NextFunction } from "express";
-import { JwtPayload } from "jsonwebtoken";
-import db from "@models/index";
-import mongoose from "mongoose";
+import logger from '../../middlewares/logger';
+import { Request, Response, NextFunction } from 'express';
+import { JwtPayload } from 'jsonwebtoken';
+import ProductModel from '../../models/product';
+import mongoose from 'mongoose';
 import {
   ProductResponse,
   PageInfo,
   ListProductResponse,
-} from "@src/interfaces/products.interfaces";
-import { seedProducts } from "@src/helper/product-db";
-const Product = db.productdb;
+} from '@src/interfaces/products.interfaces';
 
 interface AuthenticatedRequest extends Request {
   user?: JwtPayload;
@@ -25,7 +23,7 @@ export const ListProduct = async (
     const { first, last, after, before, order } = req.query;
     const userId = req.params.userId;
     const user = req.user;
-    const sort: string = req.query.sort?.toString() || "";
+    const sort: string = req.query.sort?.toString() || '';
 
     // Create the filter based on the cursor, user ID, and sort parameters
     const filter: any = {
@@ -38,21 +36,21 @@ export const ListProduct = async (
     }
 
     // Fetch the products from the database with pagination and sorting
-    const query = Product.find(filter)
-      .sort({ [sort]: order === "desc" ? -1 : 1 })
+    const query = ProductModel.find(filter)
+      .sort({ [sort]: order === 'desc' ? -1 : 1 })
       .limit(Number(first || last));
 
     const products = await query.exec();
 
     // Generate cursors for pagination
-    const startCursor = products.length > 0 ? products[0]._id.toString() : "";
+    const startCursor = products.length > 0 ? products[0]._id.toString() : '';
     const endCursor =
-      products.length > 0 ? products[products.length - 1]._id.toString() : "";
+      products.length > 0 ? products[products.length - 1]._id.toString() : '';
 
     const hasNextPage = !!after || products.length > Number(first || last);
     const hasPreviousPage = !!before;
 
-    const totalCount = await Product.countDocuments(filter);
+    const totalCount = await ProductModel.countDocuments(filter);
 
     const productResponse: ProductResponse[] = products.map((product) => ({
       product,
@@ -74,7 +72,7 @@ export const ListProduct = async (
 
     res.json(response);
   } catch (error: unknown) {
-    logger.error("Error in ListProduct:", error);
+    logger.error('Error in ListProduct:', error);
     next(error);
   }
 };
@@ -87,13 +85,13 @@ export const ListProduct2 = async (
   try {
     // Extract the query parameters
     const { order } = req.query;
-    const after: string = req.query.after?.toString() || "";
-    const before: string = req.query.before?.toString() || "";
+    const after: string = req.query.after?.toString() || '';
+    const before: string = req.query.before?.toString() || '';
     console.log(before);
 
-    const first: string = req.query.first?.toString() || "";
-    const last: string = req.query.last?.toString() || "";
-    const sort: string = req.query.sort?.toString() || "";
+    const first: string = req.query.first?.toString() || '';
+    const last: string = req.query.last?.toString() || '';
+    const sort: string = req.query.sort?.toString() || '';
 
     // Build the pagination options
     const paginationOptions: any = {};
@@ -118,12 +116,12 @@ export const ListProduct2 = async (
     const sortOptions: any = {};
 
     if (sort && order) {
-      sortOptions[sort] = order === "desc" ? -1 : 1;
+      sortOptions[sort] = order === 'desc' ? -1 : 1;
     }
     console.log(before);
     console.log(paginationOptions.startBefore);
     // Query the products
-    const products = await Product.find({}, null, paginationOptions).sort(
+    const products = await ProductModel.find({}, null, paginationOptions).sort(
       sortOptions
     );
 
@@ -148,7 +146,7 @@ export const ListProduct2 = async (
 
     res.json(response);
   } catch (error: unknown) {
-    logger.error("Error in ListProduct:", error);
+    logger.error('Error in ListProduct:', error);
     next(error);
   }
 };
@@ -166,7 +164,7 @@ export const CreateProduct = async (
     const { name, price } = req.body;
     const user = req.user;
     console.log(user.userId);
-    const newProduct = await Product.create({
+    const newProduct = await ProductModel.create({
       user: user.userId,
       name,
       price,
@@ -191,10 +189,10 @@ export const UpdateProduct = async (
 
     const { name, price } = req.body;
 
-    const product = await Product.findById(id);
+    const product = await ProductModel.findById(id);
 
     if (!product) {
-      res.status(404).json({ message: "Product not found" });
+      res.status(404).json({ message: 'ProductModel not found' });
       return;
     }
 
@@ -205,7 +203,7 @@ export const UpdateProduct = async (
 
     res.json(product);
   } catch (error: unknown) {
-    logger.error("Error in UpdateProduct:", error);
+    logger.error('Error in UpdateProduct:', error);
     next(error);
   }
 };
@@ -220,16 +218,16 @@ export const DeleteProduct = async (
     const { id } = req.params;
 
     // Find and delete the product
-    const deletedProduct = await Product.findOneAndDelete({ _id: id });
+    const deletedProduct = await ProductModel.findOneAndDelete({ _id: id });
 
     if (!deletedProduct) {
-      res.status(404).json({ message: "Product not found" });
+      res.status(404).json({ message: 'ProductModel not found' });
       return;
     }
 
-    res.json({ message: "Product deleted successfully", deletedProduct });
+    res.json({ message: 'ProductModel deleted successfully', deletedProduct });
   } catch (error: unknown) {
-    logger.error("Error in DeleteProduct:", error);
+    logger.error('Error in DeleteProduct:', error);
     next(error);
   }
 };

@@ -1,21 +1,18 @@
-import { Request, Response, NextFunction } from "express";
-import db from "../models";
-
-const Accounts = db.accountdb;
+import AccountModel from '../models/account';
 
 export const deleteUserByEmail = async (email) => {
   try {
     // Check if the user exists in the database
-    const user = await Accounts.findOne({ email: email });
+    const user = await AccountModel.findOne({ email: email });
     console.log(user);
     if (!user) {
-      throw new Error("User not found");
+      throw new Error('User not found');
     }
 
     // Delete the user
-    await Accounts.findByIdAndDelete(user._id);
+    await AccountModel.findByIdAndDelete(user._id);
 
-    return { message: "User deleted successfully" };
+    return { message: 'User deleted successfully' };
   } catch (error) {
     throw error;
   }

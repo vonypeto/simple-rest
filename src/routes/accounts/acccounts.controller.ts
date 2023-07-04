@@ -1,9 +1,9 @@
 import { Response, NextFunction } from 'express';
-import AccountModel from '@models/account';
+import AccountModel from '../../models/account';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
+
 import { Request } from '../../../types';
-import extractCredentials from '@src/utils/extract-credential';
 
 export const login = async (
   req: Request,
@@ -11,6 +11,7 @@ export const login = async (
   next: NextFunction
 ): Promise<void> => {
   try {
+    console.log(req.ctx);
     const { email, password } = req.ctx.claims;
     // Check if the user exists in the database
     const user = await AccountModel.findOne({ email });
@@ -48,29 +49,35 @@ export const register = async (
   res: Response,
   next: NextFunction
 ): Promise<void> => {
-  const { email, password, name } = req.body as {
-    email: string;
-    password: string;
-    name: string;
-  };
-  const existingUser = await AccountModel.findOne({ email });
+  try {
+    const { email, password, name } = req.body as {
+      email: string;
+      password: string;
+      name: string;
+    };
 
-  if (existingUser) {
-    res.status(409).json({ message: 'User email already in use.' });
-    return;
-  }
-  const hashedPassword = await bcrypt.hash(password, 10);
-  const newUser = await AccountModel.create({
-    email,
-    password: hashedPassword,
-  });
+    const existingUser = await AccountModel.findOne({ email });
 
-  const token = jwt.sign(
-    { userId: newUser._id },
-    process.env.ACCESS_TOKEN_SECRET,
-    {
-      expiresIn: '5h', // Set the expiration time as per your requirements
+    if (existingUser) {
+      res.status(409).json({ message: 'User already exists' });
+      return;
     }
-  );
-  res.json({ token });
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const newUser = await AccountModel.create({
+      name,
+      email,
+      password: hashedPassword,
+    });
+
+    const token = jwt.sign(
+      { userId: newUser._id },
+      process.env.ACCESS_TOKEN_SECRET,
+      {
+        expiresIn: '5h', // Set the expiration time as per your requirements
+      }
+    );
+    res.json({ token });
+  } catch (error: unknown) {
+    next(error);
+  }
 };
