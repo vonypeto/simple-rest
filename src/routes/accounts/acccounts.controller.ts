@@ -2,7 +2,6 @@ import { Response, NextFunction } from 'express';
 import AccountModel from '../../models/account';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
-
 import { Request } from '../../../types';
 
 export const login = async (

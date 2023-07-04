@@ -1,5 +1,7 @@
 TODO:
--  [ ] optional migration nestjs
--  [ ] remove tscpaths
--  [ ] restructure nested folder
--  [ ] change function names from UpperCamelCase to lowerCamelCase
+
+- [ ] optional migration nestjs
+- [x] remove tscpaths
+- [x] restructure nested folder
+- [x] change function names from UpperCamelCase to lowerCamelCase
+- [ ] unit testing product & acount
