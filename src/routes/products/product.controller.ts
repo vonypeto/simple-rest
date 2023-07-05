@@ -7,7 +7,7 @@ import {
   ProductResponse,
   PageInfo,
   ListProductResponse,
-} from '@src/interfaces/products.interfaces';
+} from '../../interfaces/products.interfaces';
 
 interface AuthenticatedRequest extends Request {
   user?: JwtPayload;

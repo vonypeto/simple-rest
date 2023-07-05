@@ -1,16 +1,10 @@
-import * as dotenv from 'dotenv';
 import './module-alias.config';
-dotenv.config();
-
 import express, { Express, Response } from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import compression from 'compression';
 import * as middlewareHandler from './src/middlewares/';
-import { connect } from './src/config/db.connection';
 import routes from './src/routes';
-
-connect();
 
 const app: Express = express();
 

@@ -1,5 +1,5 @@
 import { Router, Application } from 'express';
-import * as Product from '@src/routes/products/product.controller';
+import * as Product from '../../routes/products/product.controller';
 
 export default (app: Application): void => {
   const router = Router();

@@ -3,6 +3,9 @@ import AccountModel from '../../models/account';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import { Request } from '../../../types';
+import { warn } from '../../libs/logger';
+import { info } from 'console';
+import mongoose from 'mongoose';
 
 export const login = async (
   req: Request,
@@ -64,6 +67,7 @@ export const register = async (
       return;
     }
     const hashedPassword = await bcrypt.hash(password, 10);
+
     const newUser = await AccountModel.create({
       name,
       email,
@@ -77,8 +81,10 @@ export const register = async (
         expiresIn: '5h', // Set the expiration time as per your requirements
       }
     );
+
     res.json({ token });
   } catch (error: unknown) {
-    next(error);
+    warn(error);
+    throw error;
   }
 };

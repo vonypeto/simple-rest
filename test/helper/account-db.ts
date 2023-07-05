@@ -1,4 +1,4 @@
-import AccountModel from '../models/account';
+import AccountModel from '../../src/models/account';
 
 export const deleteUserByEmail = async (email) => {
   try {

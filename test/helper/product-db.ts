@@ -1,4 +1,4 @@
-import ProductModel from '../models/product';
+import ProductModel from '../../src/models/product';
 
 export const seedProducts = async (): Promise<
   { name: string; price: string; user: string }[]

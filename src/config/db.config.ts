@@ -1,3 +1,3 @@
 export default {
-  url: process.env.ATLAS_URI as string,
+  url: process.env.MONGODB_URI as string,
 };
